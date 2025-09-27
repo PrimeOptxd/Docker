@@ -1,0 +1,17 @@
+mkdir vaultwarden
+cd ~/selfhost/vaultwarden
+mkdir vaultwarden-data
+
+version: "3.9"
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    volumes:
+      - ./vaultwarden-data:/data
+    ports:
+      - "127.0.0.1:8082:80"
+    environment:  OPTIONAL ADMIN PANEL
+      - ADMIN_TOKEN=super-strong-random-token  (the admin password)    its accesible at http://localhost:8082/admin
