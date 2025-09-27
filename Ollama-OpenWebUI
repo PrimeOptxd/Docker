@@ -1,0 +1,30 @@
+mkdir ollama-open-webui
+cd and mkdir open-webui-data
+
+vim docker-compose.yml
+
+services:
+ ollama:
+  image: ollama/ollama
+  container_name: ollama
+  restart: unless-stopped
+  ports:
+   - "127.0.0.1:11434:11434"
+  volumes:
+  - ~/ollama:/root/.ollama
+  environment:
+  -NVIDIA_VISIBLE_DEVICES=all
+  runtime: nvidia
+
+ open-webui:
+  image: ghcr.io/open-webui/open-webui:main
+  container_name: open-webui
+  restart: unless-stopped
+  ports:
+  - "127.0.0.1:8080:8080"
+  environment:
+  - OLLAMA_BASE_URL=http://ollama:11434
+  volumes:
+  - ./open-webui-data:/app/backend/data
+  depends_on:
+   - ollama
