@@ -1,0 +1,16 @@
+mkdir -p ~/selfhost/trilium
+cd ~/selfhost/trilium
+mkdir trilium-data
+sudo chown -R 1000:1000 ~/selfhost/trilium/trilium-data
+
+vim docker-compose.yml
+
+services:
+  trilium:
+    image: zadam/trilium:latest
+    container_name: trilium
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - ./trilium-data:/home/node/trilium-data
