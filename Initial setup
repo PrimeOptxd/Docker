@@ -4,3 +4,5 @@ sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 sudo usermod -aG docker $USER
 reboot
+
+add 127.0.0.1 infront of the ports so that only current device has access
