@@ -1,0 +1,6 @@
+sudo pacman -S docker docker-compose nvidia-container-toolkit
+sudo systemctl enable docker
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+sudo usermod -aG docker $USER
+reboot
