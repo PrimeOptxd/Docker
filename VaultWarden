@@ -1,8 +1,7 @@
-mkdir vaultwarden
+ mkdir vaultwarden
 cd ~/selfhost/vaultwarden
-mkdir vaultwarden-data
-
-version: "3.9"
+ mkdir vaultwarden-data
+vim docker-compose.yml
 
 services:
   vaultwarden:
