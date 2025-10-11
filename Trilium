@@ -1,8 +1,7 @@
 mkdir -p ~/selfhost/trilium
-cd ~/selfhost/trilium
+ cd ~/selfhost/trilium
 mkdir trilium-data
-sudo chown -R 1000:1000 ~/selfhost/trilium/trilium-data
-
+ sudo chown -R 1000:1000 ~/selfhost/trilium/trilium-data
 vim docker-compose.yml
 
 services:
